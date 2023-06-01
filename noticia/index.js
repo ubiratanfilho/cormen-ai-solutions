@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 // Post the article
 app.post('/articles', (req, res) => {
-  const { title, content } = req.body;
-  article[id] = {id, title, content };
+  const { title, content, thumbnail } = req.body;
+  article[id] = {id, title, content, thumbnail};
   id++;
   res.status(201).send(article[id - 1]);
 });
