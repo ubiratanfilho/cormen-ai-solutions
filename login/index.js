@@ -1,27 +1,31 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Client } = require('pg')
+const { Client } = require('pg');
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
 // Post the login
-app.post('/login',  (req, res) => {
+app.post('/login', async (req, res) => {
   // conexão com o banco de dados
-  // const client = new Client({
-  //   host: "localhost",
-  //   user: "postgres",
-  //   password: "Uj100000",
-  //   database: "cormenai",
-  //   port: 5432
-  // })
-  // await client.connect()
+  const client = new Client({
+    host: "localhost",
+    user: "postgres",
+    password: "Uj100000",
+    database: "cormenai",
+    port: 5432
+  })
+  await client.connect()
 
 
-  const { name, email, password } = req.body;
-  const login = { name, email, password };
+  const { username, email, password } = req.body;
+  const login = { username, email, password };
   res.status(201).send(login);
+
+  // inserção no banco de dados
+  client.query(`INSERT INTO login (username, email, password) VALUES ('${username}', '${email}', '${password}')`)
+  await client.end()
 });
 
 // Get the login according to the id
