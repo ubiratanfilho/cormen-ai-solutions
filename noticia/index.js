@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const { Client } = require('pg');
 const app = express();
 const port = 3000;
-const article = {};
 
 app.use(bodyParser.json());
 
@@ -56,6 +55,6 @@ app.get('/articles/:id', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Microservice listening on port 3000');
 });
