@@ -2,6 +2,10 @@
 
 Repositório do projeto das disciplinas de Linguagem de Programação II e Arquitetura de Sistemas Computacionais, onde foi desenvolvido um website para uma hipotética empresa de consultoria de Inteligência Artificial, a CormenAI Solutions.
 
+### Release 3 - dia 17/06/2023
+
+Implementação de barramento de eventos com RabbitMQ e validado pelo ThunderClient + front-end para primeiro microsserviço
+
 ### Integrantes
 
 - Ubiratan da Motta Filho R.A 20.00928-3
