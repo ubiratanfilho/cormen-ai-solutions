@@ -1,7 +1,7 @@
 import Input from "../Input";
 import styled from "styled-components";
 import { useState } from "react";
-import { livros } from "./dadosPesquisa";
+// import { livros } from "./dadosPesquisa";
 
 
 const PesquisaContainer = styled.div`
@@ -9,7 +9,7 @@ const PesquisaContainer = styled.div`
     color: #FFF;
     text-align: center;
     padding: 85px 0;
-    height: 270px;
+    height: 100px;
     width: 100%;
 `
 
@@ -20,7 +20,7 @@ const Titulo = styled.h1`
     width: 100%;
 `
 
-const Subtitulo = styled.h2`
+const Subtitulo = styled.h4`
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 40px;
@@ -47,15 +47,15 @@ const Resultado = styled.div`
 `
 
 function Pesquisa() {
-    const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+    // const [livrosPesquisados, setLivrosPesquisados] = useState([]);
 
-    console.log(livrosPesquisados);
+    // console.log(livrosPesquisados);
 
     return (
         <PesquisaContainer>
-            <Titulo>Já sabe por onde começar?</Titulo>
-            <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
-            <Input
+            <Titulo>Tecnologia do futuro para problemas do presente</Titulo>
+            <Subtitulo>Consultoria especializada na entrega de soluções de Inteligência Artificial, renomada e capacitada nas mais diferentes indústrias. Nós desenvolvemos produtos capazes de aumentar a produtividade e reduzir os custos, automatizando processos e gerando insights por muitos inimagináveis.</Subtitulo>
+            {/* <Input
                 placeholder="Escreva sua próxima leitura"
                 onBlur={evento => {
                     const textoDigitado = evento.target.value;
@@ -68,7 +68,7 @@ function Pesquisa() {
                     <p>{livro.nome}</p>
                     <img src={livro.src} alt={livro.nome} />
                 </Resultado>
-            ))}
+            ))} */}
         </PesquisaContainer>
     )
 };
