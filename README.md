@@ -17,7 +17,7 @@ Finalização do projeto a partir da integração entre front e os dois microsse
 - Bruno Davidovitch Bertanha 20.01521-6
 
 ### Vídeo
-https://youtu.be/RH2H2gTBmO4
+https://youtu.be/CroODD9yE-w
 
 ### Commits outro repositório
 <img width="921" alt="image" src="https://github.com/ubiratanfilho/cormen-ai-solutions/assets/71028890/15490785-5461-4207-a93c-09142c3fa48e">
