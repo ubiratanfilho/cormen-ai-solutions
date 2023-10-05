@@ -1,40 +1,46 @@
+version: '3.8'
+
+
 services:
+
   postgres:
     container_name: postgres
+    restart: always
     image: postgres:15.3-alpine3.18
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: CormenA!**
-      PGDATA: /data/postgres
+      # PGDATA: /data/postgres
       POSTGRES_DB: cormenai
-    ports:
-      - "5332:5432"
+    volumes:
+      - ./postgres/var/lib:/var/lib/postgresql/data
     networks:
       - cormenai-network
-    restart: always
 
   mss-noticias:
-        container_name: mss-noticias
-        restart: always
-        build:
-            context: ./mss-noticias
-            dockerfile: Dockerfile
-        ports:
-            - 3001:3001
-        networks:
-            - cormenai-network
+    container_name: mss-noticias
+    restart: always
+    build:
+      context: ./mss-noticias
+      dockerfile: Dockerfile
+    depends_on:
+        - postgres
+    networks:
+      - cormenai-network
 
   mss-login:
-        container_name: mss-login
-        restart: always
-        build:
-            context: ./mss-login
-            dockerfile: Dockerfile
-        ports:
-            - 3002:3002
-        networks:
-            - cormenai-network
+    container_name: mss-login
+    restart: always
+    build:
+      context: ./mss-login
+      dockerfile: Dockerfile
+    depends_on:
+        - postgres   
+    networks:
+      - cormenai-network
 
 networks:
-    cormenai-network:
-        driver: bridge
+  cormenai-network:
+    driver: bridge
+
+
