@@ -2,9 +2,9 @@
 
 Repositório do projeto das disciplinas de Linguagem de Programação II e Arquitetura de Sistemas Computacionais, onde foi desenvolvido um website para uma hipotética empresa de consultoria de Inteligência Artificial, a CormenAI Solutions.
 
-### Release 5 - dia 02/09/2023
+### Release 6 - dia 06/10/2023
 
-Finalização do projeto a partir da integração entre front e os dois microsserviços.
+Criação dos scripts docker.
 
 ### Integrantes
 
