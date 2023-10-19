@@ -13,7 +13,7 @@ app.use(cors());
 // Configuração do banco de dados
 const client = new Client({
     user: 'postgres',
-    host: 'localhost',
+    host: 'postgres',
     database: 'cormenai',
     password: 'CormenA!**',
     port: 5432,
