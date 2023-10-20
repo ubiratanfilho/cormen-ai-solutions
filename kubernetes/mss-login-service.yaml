@@ -1,0 +1,14 @@
+# FILEPATH: /c:/Users/ubfil/OneDrive/Estudo/cormen-ai-solutions/kubernetes/mss-login-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mss-login-service
+spec:
+  selector:
+    app: mss-login
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3002
