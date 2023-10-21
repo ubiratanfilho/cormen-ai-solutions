@@ -14,6 +14,5 @@ CREATE TABLE IF NOT EXISTS noticias (
     thumbnail VARCHAR(255) NOT NULL
 );
 
--- Select padrão
-SELECT * FROM login;
-SELECT * FROM noticias;
+INSERT INTO login (username, password, email) VALUES ('admin', 'admin', 'admin');
+INSERT INTO noticias (title, content, thumbnail) VALUES ('Notícia 1', 'Conteúdo da notícia 1', 'https://picsum.photos/200/300');

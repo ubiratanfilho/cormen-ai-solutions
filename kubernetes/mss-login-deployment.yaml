@@ -1,0 +1,25 @@
+# FILEPATH: /c:/Users/ubfil/OneDrive/Estudo/cormen-ai-solutions/kubernetes/mss-login-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mss-login-deployment
+  labels:
+    app: mss-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mss-login
+  template:
+    metadata:
+      labels:
+        app: mss-login
+    spec:
+      containers:
+        - name: mss-login
+          image: ubiratanmotta/mss-login
+          # resources:
+          #   limits:
+          #     memory: 256Mi
+          #     cpu: 1
