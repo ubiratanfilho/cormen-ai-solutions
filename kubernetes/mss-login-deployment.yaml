@@ -18,6 +18,10 @@ spec:
     spec:
       containers:
         - name: mss-login
-          image: your-docker-image:mss-login
+          image: ubiratanmotta/mss-login
           ports:
             - containerPort: 3002
+          # resources:
+          #   limits:
+          #     memory: 256Mi
+          #     cpu: 1

@@ -14,11 +14,10 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:latest
-        env:
-          - name: POSTGRES_DB
-            value: cormenai
-          - name: POSTGRES_USER
-            value: postgres
-          - name: POSTGRES_PASSWORD
-            value: CormenA!**
+        image: ubiratanmotta/postgres
+        ports:
+            - containerPort: 5432
+          # resources:
+          #   limits:
+          #     memory: 256Mi
+          #     cpu: 1
