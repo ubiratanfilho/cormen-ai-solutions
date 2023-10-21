@@ -1,0 +1,21 @@
+# FILEPATH: /home/sociopj/Socio/Maua/2023/ArquiteturaSistemas/cormen-ai-solutions/kubernetes/mss-noticias-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mss-noticias-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mss-noticias
+  template:
+    metadata:
+      labels:
+        app: mss-noticias
+    spec:
+      containers:
+        - name: mss-noticias
+          image: sua-imagem-do-dockerhub
+          ports:
+            - containerPort: 3001
