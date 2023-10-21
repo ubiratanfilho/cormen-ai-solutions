@@ -15,8 +15,6 @@ spec:
       containers:
       - name: postgres
         image: ubiratanmotta/postgres
-        ports:
-            - containerPort: 5432
           # resources:
           #   limits:
           #     memory: 256Mi

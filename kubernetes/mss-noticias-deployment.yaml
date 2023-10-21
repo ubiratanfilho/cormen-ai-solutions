@@ -17,8 +17,6 @@ spec:
       containers:
         - name: mss-noticias
           image: ubiratanmotta/mss-noticias
-          ports:
-            - containerPort: 3001
             # resources:
             #   limits:
             #     memory: 256Mi

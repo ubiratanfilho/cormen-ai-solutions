@@ -19,8 +19,6 @@ spec:
       containers:
         - name: mss-login
           image: ubiratanmotta/mss-login
-          ports:
-            - containerPort: 3002
           # resources:
           #   limits:
           #     memory: 256Mi
