@@ -26,7 +26,7 @@ const LoginButton = styled.button`
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    margin-left: 420px;
+    margin-left: 370px;
 
     &:hover {
         background-color: #000;
@@ -41,19 +41,20 @@ const Resposta = styled.h2`
     margin-bottom: 40px;
 `
 
-function Login() {
+function Cadastro() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
     const [response, setResponse] = useState("");
 
-    const handleLogin = () => {
-        console.log(username, password)
-        axios.post("http://localhost:3002/login/check", {
+    const handleCadastro = () => {
+        axios.post("http://localhost:32154/login", {
             username: username,
-            password: password
+            password: password,
+            email: email
         }).then(response => {
-            setResponse(response.data);
             console.log(response.data);
+            setResponse(response.data);
         }).catch(error => {
             console.log(error);
         });
@@ -62,13 +63,14 @@ function Login() {
     return (
         <LoginContainer>
             <Header />
-                <LoginTitulo>Login</LoginTitulo>
+                <LoginTitulo>Cadastro</LoginTitulo>
                 <Input placeholder="Usuário" onChange={(event) => setUsername(event.target.value)} />
+                <Input placeholder="E-mail" onChange={(event) => setEmail(event.target.value)} />
                 <Input placeholder="Senha" onChange={(event) => setPassword(event.target.value)} />
-                <LoginButton onClick={handleLogin}>Entrar</LoginButton>
+                <LoginButton onClick={handleCadastro}>Cadastrar</LoginButton>
                 <Resposta>{response}</Resposta>
         </LoginContainer>
     );
 }
 
-export default Login;
+export default Cadastro;

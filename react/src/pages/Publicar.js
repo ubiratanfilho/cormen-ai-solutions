@@ -48,7 +48,7 @@ function Publicar() {
     const [response, setResponse] = useState("");
 
     const handlePublicar = () => {
-        axios.post("http://localhost:3001/noticias", {
+        axios.post("http://localhost:31507/noticias", {
             title: title,
             content: content,
             thumbnail: thumbnail
