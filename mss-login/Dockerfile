@@ -5,6 +5,8 @@ WORKDIR /mss-login
 
 COPY package.json .
 
+COPY ca.pem .
+
 RUN npm install
 
 COPY . .
