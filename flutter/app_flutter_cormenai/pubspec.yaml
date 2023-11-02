@@ -30,6 +30,9 @@ environment:
 dependencies:
   postgres: any
   pointycastle: any
+  shelf: any
+  io: any
+  shelf_router: ^1.0.0
   flutter:
     sdk: flutter
     
