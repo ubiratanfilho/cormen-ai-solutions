@@ -3,18 +3,40 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class LoginTela extends StatelessWidget{
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  Future<void> checkLogin(String email, String password) async {
-    var url = Uri.parse('http://localhost:3002/login/check');
-    var response = await http.post(url, body: {'email': email, 'password': password});
+  Future<void> checkLogin(String username, String password, BuildContext context) async {
+    var url = Uri.parse('http://localhost:32154/login/check');
+    var body = jsonEncode({'username': username, 'password': password});
+    var response = await http.post(url,
+    headers: {"Content-Type": "application/json"},
+    body: body
+    );
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
+      var responseBody = response.body;
+
       // Processar os dados recebidos
+    if (response.body == 'Login realizado com sucesso!') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login realizado com sucesso!'))
+      );
+      print('Login realizado com sucesso!');
     } else {
-      // Tratar o erro
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Usuário não encontrado.'))
+      );
+      print('Usuário não encontrado.');
     }
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Erro ao realizar login: ${response.statusCode}'))
+    );
+    print('Erro ao realizar login: ${response.statusCode}');
+  }
   }
 
   @override
@@ -33,7 +55,7 @@ class LoginTela extends StatelessWidget{
           children: <Widget>[
             emailField(),
             passwordField(),
-            submitButton()
+            submitButton(context)
           ],
         ),
       ),
@@ -42,7 +64,7 @@ class LoginTela extends StatelessWidget{
 
   Widget emailField(){
     return TextField(
-      controller: emailController,
+      controller: usernameController,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         hintText: 'seu@email.com',
@@ -62,11 +84,11 @@ class LoginTela extends StatelessWidget{
     );
   }
 
-  Widget submitButton(){
+  Widget submitButton(BuildContext context){
     return ElevatedButton(
       child: Text('Entrar'),
       onPressed: () {
-        checkLogin(emailController.text, passwordController.text);
+        checkLogin(usernameController.text, passwordController.text,context);
       },
     );
   }
