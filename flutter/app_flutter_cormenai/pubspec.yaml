@@ -32,6 +32,7 @@ dependencies:
   pointycastle: any
   shelf: any
   io: any
+  http: any
   shelf_router: ^1.0.0
   flutter:
     sdk: flutter
