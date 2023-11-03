@@ -12,3 +12,4 @@ spec:
       protocol: TCP
       port: 3002
       targetPort: 3002
+      nodePort: 31507
