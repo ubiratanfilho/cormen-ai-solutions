@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'registrar_tela.dart';
 
 class LoginTela extends StatelessWidget{
   final TextEditingController usernameController = TextEditingController();
@@ -44,10 +45,25 @@ class LoginTela extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('CormenAI Solutions',
-        style: TextStyle(
-          color: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('Registrar',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RegistrarTela()),
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
         margin: EdgeInsets.all(20.0),
@@ -61,7 +77,7 @@ class LoginTela extends StatelessWidget{
       ),
     );
   }
-
+  
   Widget emailField(){
     return TextField(
       controller: usernameController,
