@@ -14,30 +14,9 @@ class LoginTela extends StatelessWidget{
     headers: {"Content-Type": "application/json"},
     body: body
     );
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
-      var responseBody = response.body;
-
-      // Processar os dados recebidos
-    if (response.body == 'Login realizado com sucesso!') {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login realizado com sucesso!'))
-      );
-      print('Login realizado com sucesso!');
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Usuário não encontrado.'))
-      );
-      print('Usuário não encontrado.');
-    }
-  } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Erro ao realizar login: ${response.statusCode}'))
+      SnackBar(content: Text(response.body))
     );
-    print('Erro ao realizar login: ${response.statusCode}');
-  }
   }
 
   @override
@@ -59,7 +38,7 @@ class LoginTela extends StatelessWidget{
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RegistrarTela()),
+                MaterialPageRoute(builder: (context) => RegistrarUsuarioTela()),
               );
             },
           ),
