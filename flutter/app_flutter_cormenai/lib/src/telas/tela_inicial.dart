@@ -60,32 +60,41 @@ class TelaInicial extends StatelessWidget {
       ],
     ),   
     body: FutureBuilder<List<dynamic>>(
-      future: fetchNoticias(),
-      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-        if (snapshot.hasData) {
-          return ListView.builder(
-            itemCount: snapshot.data?.length ?? 0,
-            itemBuilder: (BuildContext context, int index) {
-              var noticia = snapshot.data?[index];
-              return ListTile(
-                leading: noticia?['thumbnail'] != null 
-                  ? FadeInImage.assetNetwork(
-                      placeholder: 'assets/loading.gif',  // Substitua por sua própria imagem de carregamento
-                      image: noticia?['thumbnail'],
-                    )
-                  : null,
-                title: Text(noticia?['title'] ?? ''),
-                subtitle: Text(noticia?['content'] ?? ''),
-              );
-            },
-          );
-        } else if (snapshot.hasError) {
-          return Text('Erro: ${snapshot.error}');
-        } else {
-          return CircularProgressIndicator();
-        }
-      },
-      ),
+  future: fetchNoticias(),
+  builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+    if (snapshot.hasData) {
+      return SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.35, MediaQuery.of(context).size.width * 0.01, 0, 0),
+            child: 
+            Column(
+              children: snapshot.data?.expand((noticia) {
+                return [
+                  ListTile(
+                    leading: noticia['thumbnail'] != null 
+                      ? FadeInImage.assetNetwork(
+                          placeholder: 'assets/loading.gif',  // Substitua por sua própria imagem de carregamento
+                          image: noticia['thumbnail'],
+                        )
+                      : null,
+                    title: Text(noticia['title'] ?? ''),
+                    subtitle: Text(noticia['content'] ?? ''),
+                  ),
+                  SizedBox(height: 20),  // Adicione um espaço de 20 pixels entre cada ListTile
+                ];
+              }).toList() ?? [],
+            ),
+          ),
+        ),
+      );
+    } else if (snapshot.hasError) {
+      return Text('Erro: ${snapshot.error}');
+    } else {
+      return CircularProgressIndicator();
+    }
+  },
+),
     ); 
   }
 }
