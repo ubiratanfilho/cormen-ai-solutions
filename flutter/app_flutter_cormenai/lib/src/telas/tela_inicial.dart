@@ -73,9 +73,13 @@ class TelaInicial extends StatelessWidget {
                 return [
                   ListTile(
                     leading: noticia['thumbnail'] != null 
-                      ? FadeInImage.assetNetwork(
-                          placeholder: 'assets/loading.gif',  // Substitua por sua própria imagem de carregamento
-                          image: noticia['thumbnail'],
+                      ? Container(
+                          height: 100,  // Defina a altura desejada
+                          width: 100,  // Defina a largura desejada
+                          child: Image.network(
+                            noticia['thumbnail'],
+                            fit: BoxFit.fill,
+                          ),
                         )
                       : null,
                     title: Text(noticia['title'] ?? ''),
