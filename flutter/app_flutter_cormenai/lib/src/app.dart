@@ -4,6 +4,8 @@ import '../src/telas/login_tela.dart';
 import '../src/telas/registrar_tela.dart';
 import '../src/telas/registrar_noticias.dart';
 import '../src/telas/tela_inicial.dart';
+import '../src/telas/tela_teste.dart';
+
 
 class App extends StatelessWidget{
   @override
@@ -11,7 +13,7 @@ class App extends StatelessWidget{
     return MaterialApp(
       title: 'Login',
         home: Scaffold(
-          body: TelaInicial(),
+          body: TelaTeste(),
       )
     );
   }
