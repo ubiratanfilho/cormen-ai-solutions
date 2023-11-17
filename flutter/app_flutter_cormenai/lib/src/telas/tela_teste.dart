@@ -7,7 +7,18 @@ import 'registrar_tela.dart';
 import 'registrar_noticias.dart';
 
 class TelaTeste extends StatelessWidget {
-  Widget Header() {
+
+  // Widget Header() {
+    
+  // }
+
+  // Widget Noticias(){
+  //   return Container(
+  //   )
+  // }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 90, 15, 134),
@@ -157,16 +168,16 @@ class TelaTeste extends StatelessWidget {
           ],
         ),
       ),
+      body: Center(
+        child: Container(
+          width: 600,  // Define a largura do Container
+          padding: EdgeInsets.all(35),
+          color: const Color.fromARGB(255, 92, 92, 92),  // Define a cor de fundo para cinza claro
+          child: Noticias(),  // Adicione o widget Noticias aqui
+        ),
+      )
     );
-  }
-
-  Widget Noticias(){
-    return Container(
-    )
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Header();
-  }
+    
+  
+}
 }
