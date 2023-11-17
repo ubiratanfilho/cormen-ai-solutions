@@ -7,6 +7,31 @@ import 'registrar_tela.dart';
 import 'registrar_noticias.dart';
 
 class TelaTeste extends StatelessWidget {
+  Widget Noticias(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        for (var i = 1; i <= 3; i++)
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,  // Define a largura do Container para 90% da largura da tela
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],  // Define a cor de fundo para cinza claro
+                  borderRadius: BorderRadius.circular(10),  // Arredonda as bordas
+                ),
+                child: Text(
+                  'Notícia $i',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,9 +201,8 @@ class TelaTeste extends StatelessWidget {
                   padding: EdgeInsets.all(35),
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 51, 51, 51),
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  // child: Noticias(),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Noticias(context),
                 ),
               ),
             ),
