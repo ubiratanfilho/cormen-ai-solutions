@@ -56,15 +56,15 @@ class TelaTeste extends StatelessWidget {
                   if (constraints.maxWidth > 600) {
                     return Row(
                       mainAxisSize: MainAxisSize
-                          .min, // Faz a Row tão pequena quanto possível
+                          .min, 
                       children: <Widget>[
                         TextButton(
                           child: Text(
-                            'Entrar',
+                            'Home',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16, // Altera o tamanho da fonte
-                              fontFamily: 'Raleway-Light', // Altera a fonte
+                              fontSize: 16, 
+                              fontFamily: 'Raleway-Light', 
                             ),
                           ),
                           onPressed: () {
@@ -72,14 +72,14 @@ class TelaTeste extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginTela()),
+                                  builder: (context) => TelaTeste()),
                             );
                           },
                         ),
                         SizedBox(width: 20), // Adiciona espaço entre os botões
                         TextButton(
                           child: Text(
-                            'Cadastrar',
+                            'Entrar',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16, // Altera o tamanho da fonte
@@ -91,14 +91,14 @@ class TelaTeste extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegistrarUsuarioTela()),
+                                  builder: (context) => LoginTela()),
                             );
                           },
                         ),
                         SizedBox(width: 20), // Adiciona espaço entre os botões
                         TextButton(
                           child: Text(
-                            'Publicar',
+                            'Cadastrar',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16, // Altera o tamanho da fonte
@@ -111,7 +111,25 @@ class TelaTeste extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      RegistrarNoticiasTela()),
+                                      RegistrarUsuarioTela()),
+                            );
+                          },
+                        ),
+                        TextButton(
+                          child: Text(
+                            'Publicar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16, // Altera o tamanho da fonte
+                              fontFamily: 'Raleway-Light', // Altera a fonte
+                            ),
+                          ),
+                          onPressed: () {
+                            // Adicione a ação do botão 1 aqui
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegistrarNoticiasTela()),
                             );
                           },
                         ),
@@ -123,7 +141,7 @@ class TelaTeste extends StatelessWidget {
                       children: <Widget>[
                         TextButton(
                           child: Text(
-                            'Entrar',
+                            'Home',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -135,11 +153,29 @@ class TelaTeste extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginTela()),
+                                  builder: (context) => TelaTeste()),
                             );
                           },
                         ),
                         SizedBox(height: 20),
+                        TextButton(
+                          child: Text(
+                            'Entrar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Raleway-Light',
+                            ),
+                          ),
+                          onPressed: () {
+                            // Adicione a ação do botão 2 aqui
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginTela()),
+                            );
+                          },
+                        ),
                         TextButton(
                           child: Text(
                             'Cadastrar',
@@ -154,7 +190,8 @@ class TelaTeste extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegistrarUsuarioTela()),
+                                  builder: (context) =>
+                                      RegistrarUsuarioTela()),
                             );
                           },
                         ),
@@ -207,6 +244,7 @@ class TelaTeste extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        )
+      );
   }
 }
