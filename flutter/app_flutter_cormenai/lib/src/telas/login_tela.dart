@@ -248,11 +248,19 @@ class LoginTela extends StatelessWidget{
   }
 
   Widget submitButton(BuildContext context){
-    return ElevatedButton(
+  return Padding(
+    padding: EdgeInsets.only(top: 20.0),  // Aumenta o padding superior
+    child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Color.fromARGB(255, 90, 15, 134), // Define a cor de fundo
+      ),
       child: Text('Entrar'),
       onPressed: () {
         checkLogin(usernameController.text, passwordController.text,context);
       },
-    );
-  }
+    ),
+  );
 }
+}
+
+

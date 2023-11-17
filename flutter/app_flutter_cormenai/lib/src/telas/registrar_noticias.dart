@@ -51,14 +51,20 @@ class RegistrarNoticiasTela extends StatelessWidget {
     );
   }
 
-  Widget submitButton(BuildContext context) {
-    return ElevatedButton(
-      child: Text('Registrar Noticias'),
+  Widget submitButton(BuildContext context){
+  return Padding(
+    padding: EdgeInsets.only(top: 20.0),  // Aumenta o padding superior
+    child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Color.fromARGB(255, 90, 15, 134), // Define a cor de fundo
+      ),
+      child: Text('Publicar Noticia'),
       onPressed: () {
         registerNoticia(usernameController.text, emailController.text, passwordController.text, context);
       },
-    );
-  }
+    ),
+  );
+}
 @override
 Widget build(BuildContext context) {
   return Scaffold(
