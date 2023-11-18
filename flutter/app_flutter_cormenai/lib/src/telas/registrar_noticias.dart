@@ -1,31 +1,74 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'registrar_tela.dart';
-import 'registrar_noticias.dart';
+import 'login_tela.dart';
 import 'tela_teste.dart';
+import 'registrar_tela.dart';
 
-class LoginTela extends StatelessWidget{
+
+class RegistrarNoticiasTela extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  Future<void> checkLogin(String username, String password, BuildContext context) async {
-    var url = Uri.parse('http://localhost:32154/login/check');
-    var body = jsonEncode({'username': username, 'password': password});
+
+  Future<void> registerNoticia(String title, String content, String thumbnail, BuildContext context) async {
+    var url = Uri.parse('http://localhost:31507/noticias');
+    var body = jsonEncode({'title': title, 'content': content, 'thumbnail': thumbnail});
     var response = await http.post(url,
-    headers: {"Content-Type": "application/json"},
-    body: body
+      headers: {"Content-Type": "application/json"},
+      body: body
     );
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(response.body))
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-    
-      appBar: AppBar(
+  Widget titleField() {
+    return TextField(
+      controller: emailController,
+      decoration: InputDecoration(
+        labelText: 'Title',
+      ),
+    );
+  }
+
+  Widget contentField() {
+    return TextField(
+      controller: usernameController,
+      decoration: InputDecoration(
+        labelText: 'Content',
+      ),
+    );
+  }
+
+  Widget thumbnailField() {
+    return TextField(
+      controller: passwordController,
+      decoration: InputDecoration(
+        labelText: 'Thumbnail',
+      ),
+    );
+  }
+
+  Widget submitButton(BuildContext context){
+  return Padding(
+    padding: EdgeInsets.only(top: 20.0),  // Aumenta o padding superior
+    child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Color.fromARGB(255, 90, 15, 134), // Define a cor de fundo
+      ),
+      child: Text('Publicar Noticia'),
+      onPressed: () {
+        registerNoticia(usernameController.text, emailController.text, passwordController.text, context);
+      },
+    ),
+  );
+}
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 90, 15, 134),
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -212,55 +255,17 @@ class LoginTela extends StatelessWidget{
             ],
           ),
         ),
-      body: Container(
-        margin: EdgeInsets.all(20.0),
-        child: Column(
-          children: <Widget>[
-            emailField(),
-            passwordField(),
-            submitButton(context)
-          ],
-        ),
+    body: Container(
+      margin: EdgeInsets.all(20.0),
+      child: Column(
+        children: <Widget>[
+          titleField(),
+          contentField(),
+          thumbnailField(),
+          submitButton(context)
+        ],
       ),
-    );
-  }
-  
-  Widget emailField(){
-    return TextField(
-      controller: usernameController,
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        hintText: 'seu@email.com',
-        labelText: 'Email',
-      )
-    );
-  }
-
-  Widget passwordField(){
-    return TextField(
-      controller: passwordController,
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Senha',
-        labelText: 'Senha',
-      )
-    );
-  }
-
-  Widget submitButton(BuildContext context){
-  return Padding(
-    padding: EdgeInsets.only(top: 20.0),  // Aumenta o padding superior
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: Color.fromARGB(255, 90, 15, 134), // Define a cor de fundo
-      ),
-      child: Text('Entrar'),
-      onPressed: () {
-        checkLogin(usernameController.text, passwordController.text,context);
-      },
     ),
   );
 }
 }
-
-
