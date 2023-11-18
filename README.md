@@ -2,9 +2,9 @@
 
 Repositório do projeto das disciplinas de Linguagem de Programação II e Arquitetura de Sistemas Computacionais, onde foi desenvolvido um website para uma hipotética empresa de consultoria de Inteligência Artificial, a CormenAI Solutions.
 
-### Release 8 - dia 04/11/2023
+### Release 9 - dia 19/11/2023
 
-Microserviço de autenticação e registro de novos usuários implementado com front-end.
+Microsserviço de noticias implementado com front-end.
 
 ### Integrantes
 
@@ -16,11 +16,50 @@ Microserviço de autenticação e registro de novos usuários implementado com f
 
 - Bruno Davidovitch Bertanha 20.01521-6
 
+
+
+### Como iniciar o deployment
+
+#### 1. Inicie os contêineres e publique as imagens no Docker Hub
+```
+cd mss-login
+docker build -t ubiratanmotta/mss-login . & docker push ubiratanmotta/mss-login
+
+cd ..
+cd mss-noticias
+docker build -t ubiratanmotta/mss-noticias . & docker push ubiratanmotta/mss-noticias
+```
+
+#### 2. Inicie o deployment no Kubernetes
+```
+cd ..
+cd kubernetes
+kubectl apply -f mss-login-deployment.yaml & kubectl apply -f mss-noticias-deployment.yaml
+```
+
+#### 3. Inicie o serviço no Kubernetes
+```
+kubectl apply -f mss-login-service.yaml & kubectl apply -f mss-noticias-service.yaml
+```
+
+#### 4. Verifique se os pods estão rodando
+```
+kubectl get pods
+```
+
+### Como rodar aplicativo Flutter
+
+#### 1. Mudar para diretório raiz do flutter
+
+```
+cd flutter/app_flutter_cormenai
+```
+#### 2. Rodar o aplicativo
+
+```
+flutter run
+```
+
 ### Vídeo
+#### T1 - Aplicação com React
 https://youtu.be/CroODD9yE-w
-
-### Commits outro repositório
-<img width="921" alt="image" src="https://github.com/ubiratanfilho/cormen-ai-solutions/assets/71028890/15490785-5461-4207-a93c-09142c3fa48e">
-<img width="926" alt="image" src="https://github.com/ubiratanfilho/cormen-ai-solutions/assets/71028890/4c03a0af-c42d-45c7-abbe-ff9807fd55f0">
-
-
