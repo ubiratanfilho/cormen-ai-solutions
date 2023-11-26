@@ -15,7 +15,7 @@ function UltimosLancamentos() {
   const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:31507/noticias')
+    axios.get('http://localhost:31508/noticias')
       .then((response) => {
         setNoticias(response.data);
       })

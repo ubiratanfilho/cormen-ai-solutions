@@ -9,7 +9,7 @@ import 'registrar_noticias.dart';
 class TelaTeste extends StatelessWidget {
   Future<List<dynamic>> fetchNoticias() async {
     final response =
-        await http.get(Uri.parse('http://localhost:31507/noticias'));
+        await http.get(Uri.parse('http://localhost:31508/noticias'));
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body);

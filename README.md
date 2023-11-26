@@ -63,3 +63,6 @@ flutter run
 ### Vídeo
 #### T1 - Aplicação com React
 https://youtu.be/CroODD9yE-w
+
+#### T2 - Aplicação com Flutter
+https://youtu.be/_7dojNoRV5I

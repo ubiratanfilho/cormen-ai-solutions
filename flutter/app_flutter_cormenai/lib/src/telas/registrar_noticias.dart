@@ -13,7 +13,7 @@ class RegistrarNoticiasTela extends StatelessWidget {
 
 
   Future<void> registerNoticia(String title, String content, String thumbnail, BuildContext context) async {
-    var url = Uri.parse('http://localhost:31507/noticias');
+    var url = Uri.parse('http://localhost:31508/noticias');
     var body = jsonEncode({'title': title, 'content': content, 'thumbnail': thumbnail});
     var response = await http.post(url,
       headers: {"Content-Type": "application/json"},

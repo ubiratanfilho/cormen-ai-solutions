@@ -15,7 +15,7 @@ class TelaInicial extends StatelessWidget {
   TelaInicial({Key? key}) : super(key: key);
 
   Future<List<dynamic>> fetchNoticias() async {
-    final response = await http.get(Uri.parse('http://localhost:31507/noticias'));
+    final response = await http.get(Uri.parse('http://localhost:31508/noticias'));
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
